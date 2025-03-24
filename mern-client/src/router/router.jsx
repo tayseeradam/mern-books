@@ -20,6 +20,7 @@ import Logout from "../components/Logout";
 import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
+  const BACKEND_URL = import.meta.env.BACKEND_URL
   {
     path: "/",
     element: <App />,
@@ -45,7 +46,8 @@ const router = createBrowserRouter([
       {
         path: "/blog/:postId",
         loader: ({ params }) =>
-          fetch(`http://localhost:8080/book/${params.postId}`)
+          fetch(`${BACKEND_URL}/${params.postId}`)
+          //http://localhost:8080/book
             .then((res) => {
               if (!res.ok) {
                 throw new Error("Network response was not ok");
@@ -61,7 +63,7 @@ const router = createBrowserRouter([
         path: "/book/:id",
         element: <SingleBook />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8080/book/${params.id}`)
+          fetch(`${BACKEND_URL}/${params.id}`)
             .then((res) => {
               if (!res.ok) {
                 throw new Error("Network response was not ok");
@@ -92,7 +94,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-books/:id",
         element: <EditBooks />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8080/book/${params.id}`)
+          fetch(`${BACKEND_URL}/${params.id}`)
             .then((res) => {
               if (!res.ok) {
                 throw new Error("Network response was not ok");
