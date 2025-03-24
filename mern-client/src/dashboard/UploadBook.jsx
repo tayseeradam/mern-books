@@ -47,8 +47,10 @@ const UploadBook = () => {
     };
     console.log(bookObj);
 
+     const BACKEND_URL = import.meta.env.BACKEND_URL
     // send data to db
-    fetch("https://book-store-3bg5.onrender.com/all-books/upload-book", {
+    fetch("BACKEND_URL", {
+     // https://book-store-3bg5.onrender.com/all-books/upload-book
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
