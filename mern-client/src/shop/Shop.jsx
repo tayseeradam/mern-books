@@ -4,9 +4,10 @@ import { Card } from "flowbite-react";
 const Shop = () => {
   const [books, setBooks] = useState([]);
 
+   const BACKEND_URL = import.meta.env.BACKEND_URL
   useEffect(() => {
-    fetch("http://localhost:8080/all-books")
-  
+    fetch("BACKEND_URL")
+  //http://localhost:8080/all-books
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
