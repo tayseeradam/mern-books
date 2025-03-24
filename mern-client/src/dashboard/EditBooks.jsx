@@ -34,8 +34,10 @@ const EditBooks = () => {
 
     const updateBookObj = { bookTitle, authorName, URL, category, bookDescription, bookPDF };
 
+    const BACKEND_URL = import.meta.env.BACKEND_URL
     // Update the book data
-    fetch(`https://book-store-3bg5.onrender.com/book/${id}`, {  // Updated URL
+    fetch(`${BACKEND_URL}/${id}`, {  // Updated URL
+     // (`https://book-store-3bg5.onrender.com/book/${id}`,
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
